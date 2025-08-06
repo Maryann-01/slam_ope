@@ -1,0 +1,128 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/robotis/turtlebot/protos/TurtleBot3Burger.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/living_room_furniture/protos/Sofa.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/living_room_furniture/protos/Armchair.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/tables/protos/Table.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/apartment_structure/protos/Wall.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/cabinet/protos/Cabinet.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/apartment_structure/protos/Door.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/toys/protos/RubberDuck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/devices/robotis/protos/RobotisLds01.proto"
+
+WorldInfo {
+  basicTimeStep 64
+}
+Viewpoint {
+  orientation -0.29020077189568066 -0.020244837913367057 0.9567516179913219 3.2748837936146815
+  position 10.18695317901172 -1.7027391287215718 7.88619666269856
+  follow "TurtleBot3Burger"
+  followType "Pan and Tilt Shot"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+TurtleBot3Burger {
+  hidden position_0_0 749.5471349009101
+  hidden position_0_1 718.0660316352897
+  hidden position_0_2 -4.142104790898153
+  hidden position2_0_2 -83.29081995800044
+  hidden position3_0_2 537.0003208922435
+  hidden linearVelocity_0 0.20838800911909935 -0.0017248342825402839 6.637704629439619e-05
+  hidden angularVelocity_0 0.0009146522994673057 -0.0015715065503824344 -0.013930401394657729
+  hidden translation_9 0 -0.08 0.033
+  hidden rotation_9 0 -1 0 6.005897960640254
+  hidden linearVelocity_9 0.20728993781012497 -0.0021594499757953763 4.3043606118607305e-05
+  hidden angularVelocity_9 0.0655187211336002 6.278090822356896 -0.005679315209637296
+  hidden translation_10 0 0.08 0.033
+  hidden rotation_10 -0.014868274033627775 0.9996094807813031 0.023660523227406395 3.880031225659919
+  hidden linearVelocity_10 0.2095198205564834 -0.002190461658845431 0.0001935182142498782
+  hidden angularVelocity_10 0.06551199489599227 6.278090746962739 -0.00565354721588255
+  hidden translation_11 -0.081 0 0.004
+  hidden rotation_11 0.05576975090542684 -0.8913748945911566 -0.44982277863237546 1.7302335476039656
+  hidden linearVelocity_11 0.20846458910132748 -0.0010236930611564905 -7.52419347891403e-06
+  hidden angularVelocity_11 0.2559232662234915 52.11614727366351 0.0010822770968585292
+  translation -1.5030922533341895 -3.341745572763091 -0.00036988876981544627
+  rotation -0.08069739342023068 0.6969267013904555 0.712587611163848 -0.015732079681277433
+  controller "turtlebot_python"
+  supervisor TRUE
+  extensionSlot [
+    Camera {
+      translation 0.1 0 0.2
+      rotation 0 1 0 0
+      recognition Recognition {
+      }
+    }
+    RobotisLds01 {
+    }
+  ]
+}
+Floor {
+  appearance Parquetry {
+    colorOverride 0.7 0.9 0.7
+  }
+}
+RubberDuck {
+  translation -2 1.4873064696698912e-17 0.02037603640970649
+  rotation -0.8871751899424586 0.09845527489086445 0.4508067670263244 7.5946392455574825e-16
+}
+Wall {
+  translation -4.5 0 0
+  rotation 0 0 1 1.5707996938995747
+  name "wall(3)"
+  size 10 1 1.3
+}
+Wall {
+  translation 0 4 0
+  rotation 0 0 1 3.141592653589793
+  size 10 1 1.3
+}
+Wall {
+  translation 4.5 0 0
+  rotation 0 0 1 1.5707996938995747
+  name "wall(2)"
+  size 7 1 1.3
+}
+Wall {
+  translation 1.1 -4 0
+  rotation 0 0 1 3.141592653589793
+  name "wall(1)"
+  size 7.5 1 1.4
+}
+Armchair {
+  translation 1.5 -0.3 0
+  rotation 0 0 1 -1.570795613280012
+}
+Table {
+  translation 1.2 -2 0
+  size 1 1.6 0.37
+}
+Sofa {
+  translation 2.5 -2 0
+  rotation 0 0 1 3.141592653589793
+}
+Cabinet {
+  hidden translation_7 -1.2299762032819375e-05 -3.801110814993791e-10 0
+  hidden rotation_7 0 0 1 6.18078539884514e-05
+  hidden translation_11 -8.888150127450734e-06 2.3351831579532245e-10 0
+  hidden rotation_11 0 0 -0.9999999999999999 5.2545990728684746e-05
+  hidden translation_15 0 0 0
+  hidden translation_23 0 0 0
+  hidden translation_31 0 0 0
+  hidden translation_39 0 0 0
+  translation -3 3 0
+  rotation 0 0 1 -1.5708003061004252
+}
+Door {
+  hidden translation_4 0.002370695905467457 0.0014165536624441977 0
+  hidden rotation_4 0 0 -1 0.0020285313680274515
+  translation -3.3 -4.15 0
+  rotation 0 0 1 1.5707996938995747
+  size 1.3 1.4 1.4
+  position -0.0032456501894398975
+}
