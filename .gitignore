@@ -1,0 +1,7 @@
+# Ignore log files
+basic_slam_log.csv
+slam_data_evaluation_sigma0.5.csv
+slam_data_evaluation_sigma0.75.csv
+slam_data_logging_sigma1.0.csv
+ekf_slam_evaluation_sigma0.4.csv
+ekf_slam_logging_sigma0.8.csv
