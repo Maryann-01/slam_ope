@@ -7,13 +7,13 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Parquetry.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/devices/robotis/protos/RobotisLds01.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/containers/protos/CardboardBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/animals/protos/Dog.proto"
 
 WorldInfo {
-  basicTimeStep 64
 }
 Viewpoint {
-  orientation -0.34793743625298745 -0.5052651540451489 0.7897130267137743 4.848937663646389
-  position -6.671399791318609 10.529146987815817 10.003796031456975
+  orientation -0.6232057592826673 -0.15228021292823807 0.7670888594859429 3.512168806182629
+  position 3.5859284783094973 3.5413631084684702 15.230418109679107
   follow "TurtleBot3Burger"
   followType "Pan and Tilt Shot"
 }
@@ -22,20 +22,33 @@ TexturedBackground {
 TexturedBackgroundLight {
 }
 TurtleBot3Burger {
-  hidden position_0_0 3087.264300004328
-  hidden position_0_1 3005.0541757858587
-  hidden position_0_2 -967.335666034085
-  hidden position2_0_2 471.0976579280863
-  hidden position3_0_2 -4606.6906544089115
-  hidden rotation_9 0 -1 0 1.728181881012883
-  hidden rotation_10 0.01428391862129772 -0.9995991435864399 -0.02444425924580593 2.3387586269421474
-  hidden rotation_11 -0.22900137130564427 -0.956386260257386 -0.18133861456133926 2.3318820084399725
-  controller "turtlebot_python"
+  hidden position_0_0 22197.05928950963
+  hidden position_0_1 22409.429057339265
+  hidden position_0_2 -87552.81603051398
+  hidden position2_0_2 -0.624669034717491
+  hidden position3_0_2 -664.9205227803885
+  hidden linearVelocity_0 -7.647142548057778e-16 2.6660269131901068e-15 3.563165987493969e-16
+  hidden angularVelocity_0 2.4819308590537652e-15 -5.6058687318754055e-15 5.8318572628753536e-15
+  hidden rotation_10 0 1 0 3.2779885505794826
+  hidden linearVelocity_10 -6.289818664677497e-16 -7.863552045675406e-17 -1.747803205244204e-15
+  hidden angularVelocity_10 1.5975771043263634e-14 -9.065769881747009e-16 4.879634095267637e-15
+  hidden rotation_11 -0.5320935994185481 2.268493441933871e-06 0.8466855387052904 3.1415936887941105
+  hidden linearVelocity_11 -1.0354458906256413e-15 2.3991384275604274e-16 1.5583199823936681e-15
+  hidden angularVelocity_11 -2.1539512437844944e-14 -3.104738601918021e-14 5.539782550591769e-15
+  hidden rotation_12 -0.8268158802898556 0.4639409994894594 0.31801611451816847 3.2739975698007373
+  hidden linearVelocity_12 -1.0296456941011972e-15 2.5812224104021587e-15 5.047266950564663e-14
+  hidden angularVelocity_12 -6.453055809761419e-13 -2.574114148993599e-13 -1.9082789846158043e-28
+  translation 0.7584008737657084 2.071818896055529 -0.0002477392073605353
+  rotation 0.0023097165709151826 -0.005341998939008877 0.9999830639849345 0.8204074860246257
+  controller "<extern>"
   controllerArgs [
     ""
   ]
   supervisor TRUE
   extensionSlot [
+    InertialUnit {
+      name "inertial_unit"
+    }
     Camera {
       translation 0.1 0 0.2
       rotation 0 1 0 0
@@ -271,7 +284,7 @@ Solid {
   ]
 }
 Solid {
-  translation -3 3.2 0.11111647999999996
+  translation -3 3.2 0.11205823999916595
   children [
     DEF FOOTBALL_SHAPE Shape {
       appearance PBRAppearance {
@@ -305,6 +318,7 @@ Solid {
     1 1 1
     0 0 0
   ]
+  linearVelocity 0 0 6.554661998355918e-12
 }
 Solid {
   translation 3.7 3.2 0
@@ -414,176 +428,9 @@ Solid {
     0.5 0.3 0.3
   ]
 }
-Solid {
-  translation -1.5564845382431356 -0.260416085709359 0.020376030918944254
-  rotation 4.821431445527407e-08 4.638573285896324e-08 -0.9999999999999977 2.2014998358102056
-  children [
-    Pose {
-      children [
-        DEF BEAK Pose {
-          translation 0.0394 0 0.05868
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 0.901961 0.431373 0.109804
-                roughness 0.7
-                metalness 0
-              }
-              geometry Mesh {
-                url [
-                  "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/toys/protos/RubberDuck/meshes/beak.obj"
-                ]
-              }
-            }
-          ]
-        }
-        DEF GEOM Shape {
-          appearance PBRAppearance {
-            baseColor 1 0.8 0
-            roughness 0.7
-            metalness 0
-          }
-          geometry Mesh {
-            url [
-              "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/toys/protos/RubberDuck/meshes/body.obj"
-            ]
-          }
-        }
-        DEF EYE Pose {
-          translation 0.026677002 0.012248128 0.069200846
-          rotation -0.18117290235136482 0.4918957348778623 0.8515955410067332 -1.18424
-          children [
-            DEF EYE_GEOM Shape {
-              appearance PBRAppearance {
-                baseColorMap ImageTexture {
-                  url [
-                    "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/toys/protos/RubberDuck/textures/eye.jpg"
-                  ]
-                }
-                roughness 0.4
-                metalness 0
-              }
-              geometry Mesh {
-                url [
-                  "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/toys/protos/RubberDuck/meshes/eye.obj"
-                ]
-              }
-            }
-          ]
-        }
-        DEF EYE Pose {
-          translation 0.026708849 -0.012243724 0.069238147
-          rotation -0.23056699185533644 0.18891399332670777 0.954541966281283 -2.20978
-          children [
-            USE EYE_GEOM
-          ]
-        }
-      ]
-    }
-  ]
-  name "rubber duck"
-  model "rubber duck"
-  immersionProperties [
-    ImmersionProperties {
-      fluidName "water"
-      viscousResistanceForceCoefficient 400
-      viscousResistanceTorqueCoefficient 0.5
-    }
-  ]
-  boundingObject Group {
-    children [
-      Pose {
-        translation 0 0 -0.018
-        children [
-          Box {
-            size 0.06 0.05 0.005
-          }
-        ]
-      }
-      Pose {
-        translation 0.037 0 0.06
-        children [
-          Box {
-            size 0.014 0.025 0.015
-          }
-        ]
-      }
-      Pose {
-        translation 0.01 0 0.059
-        children [
-          Sphere {
-            radius 0.025
-          }
-        ]
-      }
-      Pose {
-        translation -0.042 0 0.013
-        rotation -0.06526396752413574 -0.06526396752413574 0.9957315045161609 1.575074
-        children [
-          Capsule {
-            height 0.04
-            radius 0.008
-            subdivision 16
-          }
-        ]
-      }
-      Pose {
-        translation 0 0 0.005
-        rotation -0.5773509358554485 -0.5773509358554485 -0.5773489358556708 -2.094397
-        children [
-          Capsule {
-            height 0.05
-            radius 0.025
-            subdivision 16
-          }
-        ]
-      }
-      Pose {
-        translation 0.013 0 0.034
-        children [
-          Cylinder {
-            height 0.013
-            radius 0.018
-          }
-        ]
-      }
-      Pose {
-        translation 0 0.02 0
-        rotation -0.5773509358554485 -0.5773509358554485 -0.5773489358556708 -2.094397
-        children [
-          Capsule {
-            height 0.036
-            radius 0.018
-            subdivision 16
-          }
-        ]
-      }
-      Pose {
-        translation 0 -0.02 0
-        rotation -0.5773509358554485 -0.5773509358554485 -0.5773489358556708 -2.094397
-        children [
-          Capsule {
-            height 0.036
-            radius 0.018
-            subdivision 16
-          }
-        ]
-      }
-    ]
-  }
-  physics Physics {
-    density 400
-    centerOfMass [
-      0 0 0
-    ]
-    damping Damping {
-      linear 0.5
-      angular 0.5
-    }
-  }
-  recognitionColors [
-    0.87451 0.756863 0.113725
-  ]
+Dog {
+  translation -2 -1 0
+  color 0.9 0.9 0.97
 }
 Solid {
   translation -4.5 0 0
@@ -694,8 +541,8 @@ Solid {
   ]
 }
 Solid {
-  translation 1.4 1.6 0.06076253599999999
-  rotation 0.5805052167646075 0.1970710117985583 0.7900485488992234 4.70987579937182e-16
+  translation -1.381050692206099 0.9015797139149752 0.03141253599999999
+  rotation 0.634979306477247 -0.4397011994040195 -0.6351882678295794 -2.313585692675258
   children [
     Shape {
       appearance PBRAppearance {
@@ -752,6 +599,8 @@ Solid {
   recognitionColors [
     0.666667 0.8 0.3
   ]
+  linearVelocity 0.035500598793015106 0.0133612780071577 -1.3033593854141927e-16
+  angularVelocity -0.4208276537687451 1.1181290958429955 5.351845754432345e-16
 }
 Solid {
   translation 1.1 -4 0
@@ -2034,7 +1883,7 @@ Solid {
       children [
         HingeJoint {
           jointParameters HingeJointParameters {
-            position 0.0002229431068271871
+            position 0.0002545040730810638
             axis 0 0 1
             anchor 0 -0.199 0
             minStop -1.57
@@ -2042,8 +1891,8 @@ Solid {
             dampingConstant 5
           }
           endPoint Solid {
-            translation -6.1585344132471e-05 -9.529535299757086e-09 0
-            rotation 0 0 1 0.00030947406620385643
+            translation -6.786597608451556e-05 -1.1572340724574914e-08 0
+            rotation 0 0 1 0.0003410349852068587
             children [
               Solid {
                 translation -0.01 0 0
@@ -2219,6 +2068,8 @@ Solid {
               density -1
               mass 0.01
             }
+            linearVelocity -8.249786193075863e-14 -3.2136658653943354e-15 -2.308056618028977e-07
+            angularVelocity -1.520060155122083e-09 4.950093969154969e-08 -4.5268257514443895e-15
           }
         }
       ]
@@ -2230,7 +2081,7 @@ Solid {
       children [
         HingeJoint {
           jointParameters HingeJointParameters {
-            position -0.00018953516528502862
+            position -0.00021636673396639708
             axis 0 0 1
             anchor 0 0.16915 0
             minStop -0.01
@@ -2238,8 +2089,8 @@ Solid {
             dampingConstant 5
           }
           endPoint Solid {
-            translation -4.4503282878669454e-05 5.85439466349591e-09 0
-            rotation 0 0 -1 0.00026309954065488077
+            translation -4.904184254747586e-05 7.109376531921896e-09 0
+            rotation 0 0 -1 0.0002899310737580044
             children [
               Solid {
                 translation -0.01 0 0
@@ -2415,6 +2266,8 @@ Solid {
               density -1
               mass 0.01
             }
+            linearVelocity 4.94093981973164e-14 -4.992335544361436e-15 -2.27712012120252e-07
+            angularVelocity -1.515841569568734e-09 -4.2076354573452766e-08 3.319448358567902e-15
           }
         }
       ]
@@ -2985,6 +2838,7 @@ Solid {
               density -1
               mass 1.5
             }
+            linearVelocity 0 0 -2.2449708043300218e-07
           }
         }
       ]
@@ -3555,6 +3409,7 @@ Solid {
               density -1
               mass 1.5
             }
+            linearVelocity 0 0 -2.244970804329989e-07
           }
         }
       ]
@@ -4125,6 +3980,7 @@ Solid {
               density -1
               mass 1.5
             }
+            linearVelocity 0 0 -2.244970804329989e-07
           }
         }
       ]
@@ -4695,6 +4551,7 @@ Solid {
               density -1
               mass 3.5
             }
+            linearVelocity 0 0 -4.6681314150010153e-07
           }
         }
       ]
@@ -5575,7 +5432,7 @@ Solid {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position -0.01137400201951232
+        position -0.012409769073714595
         axis 0 0 1
         anchor 0.7000000000000001 -0.6749999999999999 0.7
         minStop -1.57
@@ -5583,8 +5440,8 @@ Solid {
         dampingConstant 10
       }
       endPoint Solid {
-        translation 0.007891833186890351 0.007064722317876693 1.3766765505351941e-14
-        rotation 0 0 -1 0.010156883205628516
+        translation 0.00859866448020652 0.0077812191627769645 1.6431300764452317e-14
+        rotation 0 0 -1 0.011192650259794
         children [
           Pose {
             translation 0.7250000000000001 0 0.7
@@ -5797,6 +5654,8 @@ Solid {
         physics Physics {
           density 200
         }
+        linearVelocity 2.7921507300464895e-10 3.4554424069621765e-10 -3.426835704021983e-06
+        angularVelocity -7.76250215364439e-08 -1.6016458114775554e-06 -5.158877910370092e-10
       }
     }
   ]
@@ -6025,6 +5884,6 @@ Solid {
   ]
 }
 CardboardBox {
-  translation -0.1 -2.89 0.886
+  translation -3.65 -1 0.3
   name "cardboard box(2)"
 }
