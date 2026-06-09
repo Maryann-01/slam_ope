@@ -1,0 +1,28 @@
+slam_toolbox:
+  ros__parameters:
+    
+    odom_frame: odom
+    map_frame: map
+    base_frame: base_link          
+
+    
+    scan_topic: /scan              
+    odom_topic: /odom
+
+    
+    mode: mapping                  
+
+    
+    position_covariance_scale: 1.0   
+    yaw_covariance_scale: 1.0
+
+    
+    debug_logging: false
+    use_sim_time: false
+    transform_publish_period: 0.02
+    map_update_interval: 5.0
+    minimum_travel_distance: 0.1
+    minimum_travel_heading: 0.1
+    scan_buffer_size: 10
+    scan_buffer_maximum_size: 30
+
