@@ -1,7 +1,7 @@
 # Ignore CSV log/data files
 *.csv
 
-# Build artifacts
+# Python bytecode
 __pycache__/
 *.pyc
 *.pyo
