@@ -2,54 +2,74 @@
 ## Project Overview
 This project implements and compares offline policy evaluation (OPE) methods for mobile robot navigation under localization uncertainty. Using data logged from a TurtleBot3 Burger robot running EKF-SLAM in the Webots simulator, we predict how well a target control policy would perform without requiring real-world deployment.
 
-### Question:
-Can we predict the performance of a low-noise policy (policy=0.4) using only logged data from a high-noise exploratory policy (policy=0.8)?
+## Research Question
 
-### Key findings:
-- Model-Based OPE (Neural Network): 7.1% average error (range: 4.4% to 62% across seeds)
-- Importance Sampling: 9.4% error (consistent across runs)
+How does SLAM-induced localization uncertainty affect the reliability of offline policy evaluation (OPE) methods when applied to mobile robot navigation? Specifically, can we accurately predict how a target navigation policy will perform from logged data of a behaviour policy, when the robot's state estimates carry uncertainty from SLAM?
 
+## Approach
 
-# System Architecture
-1. Simulation Environment
-   - Platform: Webots R2023a
-   - Robot: TurtleBot3 Burger
-   - Sensors:
-     - LiDAR (360° laser range finder)
-     - Wheel encoders (odometry)
-    
-2.  ### **SLAM Implementation**
-   - **Algorithm**: Extended Kalman Filter (EKF) SLAM
-   - **State**: Robot pose (x, y, theta) + landmark positions
-   - **Uncertainty Tracking**: Covariance matrices for state estimates
-   - **Features:**
-     - Real-time localization
-     - Landmark detection and tracking 
-     - Uncertainty quantification
-       
-3. ### **Control Policies**
-   Two Gaussian noise policies tested:
-   | Policy               | Noise Level     | Purpose                        | Timesteps | Cummulative Reward |
-   |----------------------|-----------------|--------------------------------|-----------|--------------------|
-   |Behaviour (policy=0.8)|High exploration |Data collection, Model Training |4885       | 14,424             |
-   |Target (policy=0.4)   |Low exploration  |Evalauation Target, Validation  |4896       | 17,936             |
+The project studies how SLAM uncertainty (represented by pose covariance matrices) affects both the accuracy of OPE predictions and the calibration of confidence in those predictions. We compare importance sampling and model-based OPE methods across different uncertainty levels.
 
-4. ## OPE Methods Implemented
-   ### Model-Based OPE
-   - Dynamics Model: f(state, action) → next_state
-   - Reward Model: g(state) → reward
-   - Implementation: Random Forest and Neural Networks
-   - Process: Simulate target policy performance using learned models
-  
-## Data Format
-### CSV Columns
-### State Features:
-`est_x`, `est_y`, `est_yaw` :EKF-SLAM estimated robot pose
-`pos_uncertainty`: Position covariance magnitude
-`yaw_uncertainty_deg`: Orientation uncertainty (degrees)
-`pos_error` :Ground truth localization error
-`landmarks_seen` : Number of detected landmarks
-`landmarks_confident` : High-confidence landmark count
-`min_distance` :Distance to nearest obstacle
+## System Setup
 
-    
+- **Simulator**: Webots R2025a  
+- **Robot**: TurtleBot3 Burger with 360° LiDAR  
+- **SLAM**: slam_toolbox (ROS2 Jazzy)  
+- **Middleware**: ROS2 Jazzy  
+- **OS**: Ubuntu 24.04 (WSL2)
+
+## Repository Structure
+WebotsProject/
+├── ros2_implementation/        # Current ROS2 + slam_toolbox version
+│   └── slam_webots_pkg/
+│       ├── launch/             # ROS2 launch files
+│       ├── config/             # slam_toolbox parameters
+│       └── slam_webots_pkg/
+│           └── behaviour_policy.py
+├── worlds/                     # Webots simulation worlds
+├── libraries/                  # Webots libraries
+├── plugins/                    # Webots plugins
+├── protos/                     # Webots protos
+└── archive/                    # Pre-ROS2 work (EKF-SLAM implementation)
+
+## Behaviour Policy
+
+A reactive navigation policy that selects directions based on LiDAR distances, with Gaussian noise (σ = 0.3) added to angular velocity to make the policy stochastic. This stochasticity is required for importance sampling to be applicable.
+
+## Data Logging
+
+Each timestep logs:
+- Episode and timestep indices
+- SLAM-estimated pose (x, y, yaw)
+- Pose covariance (cov_xx, cov_yy, cov_yaw)
+- LiDAR distances (front, left, right sectors)
+- Actions (linear and angular velocity)
+- Reward
+
+Rewards combine forward progress, safety penalties near obstacles, and a smoothness term.
+
+## Status
+
+- [x] Behaviour policy implemented in ROS2
+- [x] 50 episodes of trajectory data collected with SLAM pose estimates and covariances
+- [x] Importance sampling pipeline (in progress)
+- [ ] Model-based OPE pipeline
+- [ ] Target policy validation in simulation
+- [ ] Comparative analysis across SLAM uncertainty levels
+
+## How to Run
+
+1. Open Webots and load `worlds/turtlebot_slam.wbt`
+2. Press play in Webots
+3. In a separate terminal:
+```bash
+   cd ~/ros2_ws
+   source install/setup.bash
+   ros2 launch slam_webots_pkg slam_webots.launch.py
+```
+
+Data logs to `behaviour_a_sigma0.3.csv` in the workspace directory.
+
+## Documentation
+
+The `archive/` folder contains the earlier EKF-SLAM implementation that was superseded by this ROS2 + slam_toolbox version.
