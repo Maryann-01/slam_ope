@@ -19,18 +19,21 @@ The project studies how SLAM uncertainty (represented by pose covariance matrice
 - **OS**: Ubuntu 24.04 (WSL2)
 
 ## Repository Structure
+
+~~~
 WebotsProject/
-├── ros2_implementation/        # Current ROS2 + slam_toolbox version
+├── ros2_implementation/        Current ROS2 + slam_toolbox version
 │   └── slam_webots_pkg/
-│       ├── launch/             # ROS2 launch files
-│       ├── config/             # slam_toolbox parameters
+│       ├── launch/             ROS2 launch files
+│       ├── config/             slam_toolbox parameters
 │       └── slam_webots_pkg/
 │           └── behaviour_policy.py
-├── worlds/                     # Webots simulation worlds
-├── libraries/                  # Webots libraries
-├── plugins/                    # Webots plugins
-├── protos/                     # Webots protos
-└── archive/                    # Pre-ROS2 work (EKF-SLAM implementation)
+├── worlds/                     Webots simulation worlds
+├── libraries/                  Webots libraries
+├── plugins/                    Webots plugins
+├── protos/                     Webots protos
+└── archive/                    Pre-ROS2 work (EKF-SLAM implementation)
+~~~
 
 ## Behaviour Policy
 
