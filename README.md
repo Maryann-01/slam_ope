@@ -1,6 +1,5 @@
-# Offline Policy Evaluation for Mobile Robots with SLAM
-## Project Overview
-This project implements and compares offline policy evaluation (OPE) methods for mobile robot navigation under localization uncertainty. Using data logged from a TurtleBot3 Burger robot running EKF-SLAM in the Webots simulator, we predict how well a target control policy would perform without requiring real-world deployment.
+# Offline Policy Evaluation for Mobile Robot Navigation under SLAM Uncertainty
+
 
 ## Research Question
 
