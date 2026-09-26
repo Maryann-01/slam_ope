@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<robot name="TurtleBot3Burger">
+  <link name="base_link"/>
+  <link name="left_wheel_link"/>
+  <link name="right_wheel_link"/>
+  <joint name="left wheel motor" type="continuous">
+    <parent link="base_link"/>
+    <child link="left_wheel_link"/>
+    <origin xyz="0 0.08 0.033" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+  <joint name="right wheel motor" type="continuous">
+    <parent link="base_link"/>
+    <child link="right_wheel_link"/>
+    <origin xyz="0 -0.08 0.033" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+  <ros2_control name="WebotsControl" type="system">
+    <hardware>
+      <plugin>webots_ros2_control::Ros2ControlSystem</plugin>
+    </hardware>
+    <joint name="right wheel motor">
+      <state_interface name="position"/>
+      <command_interface name="velocity"/>
+    </joint>
+    <joint name="left wheel motor">
+      <state_interface name="position"/>
+      <command_interface name="velocity"/>
+    </joint>
+  </ros2_control>
+</robot>

@@ -17,6 +17,7 @@ slam_toolbox:
     yaw_covariance_scale: 1.0
 
     
+    max_laser_range: 3.5
     debug_logging: false
     use_sim_time: false
     transform_publish_period: 0.02
